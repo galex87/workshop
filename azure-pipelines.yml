@@ -7,11 +7,8 @@ steps:
   displayName: Connect to AML Workspace
   inputs:
     azureSubscription:  'aml-workspace-connection'
-    scriptType: bash
+    scriptType: ps
     scriptLocation: inlineScript
     inlineScript: |
-      az ml folder attach -g $(RESOURCE_GROUP) -w $(WORKSPACE_NAME)
-
-
-- script: echo hello world
-  displayName: 'Publish ADF pipelines'
+      az --version
+      az account show
