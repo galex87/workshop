@@ -1,0 +1,28 @@
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.8'
+    addToPath: true 
+
+- script: |
+    pip install -r requirements.txt
+    az version
+    az extension add -n azure-cli-ml
+  displayName: 'Installing Dependencies'
+
+- task: AzureCLI@2
+  displayName: Connect to AML Workspace
+  inputs:
+    azureSubscription:  '$(WORKSPACE_SVC_CONNECTION)'
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az ml folder attach -g $(RESOURCE_GROUP) -w @(AML_WORKSPACE)
+
+
+- script: |
+    echo "Publish ADF pipeline with AML pipeline"
+  displayName: 'Publish ADF pipelines'
