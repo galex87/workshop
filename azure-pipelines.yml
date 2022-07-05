@@ -13,6 +13,5 @@ steps:
       az ml folder attach -g $(RESOURCE_GROUP) -w $(WORKSPACE_NAME)
 
 
-- script: |
-    echo "Publish ADF pipeline with AML pipeline"
+- script: echo hello world
   displayName: 'Publish ADF pipelines'
