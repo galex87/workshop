@@ -7,7 +7,7 @@ steps:
   displayName: Connect to AML Workspace
   inputs:
     azureSubscription:  'demoMSI'
-    scriptType: bash
+    scriptType: ps
     scriptLocation: inlineScript
     inlineScript: |
       az ml folder attach -g $(RESOURCE_GROUP) -w $(AML_WORKSPACE)
