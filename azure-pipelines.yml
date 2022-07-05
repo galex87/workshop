@@ -6,7 +6,7 @@ steps:
 - task: AzureCLI@2
   displayName: Connect to AML Workspace
   inputs:
-    azureSubscription:  'aml-workspace-connection'
+    azureSubscription:  'demo'
     scriptType: ps
     scriptLocation: inlineScript
     inlineScript: |
