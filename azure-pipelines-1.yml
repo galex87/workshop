@@ -10,7 +10,9 @@ steps:
     scriptType: ps
     scriptLocation: inlineScript
     inlineScript: |
-      az extension list
+      az extension add -n ml -y;
+      az extension list;
+      az ml compute list -g "aml-private" -w "demo-private"
 
 
 - script: |
