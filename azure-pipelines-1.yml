@@ -18,7 +18,7 @@ steps:
 - task: AzureCLI@2
   displayName: Connect to AML Workspace
   inputs:
-    azureSubscription:  '$(WORKSPACE_SVC_CONNECTION)'
+    azureSubscription:  'demoMSI'
     scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
